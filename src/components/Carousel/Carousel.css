@@ -1,0 +1,201 @@
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+  padding: 20px;
+  --outer-r: 28px;
+  --p-distance: 14px;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  margin: 0 auto;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+:root:not(.dark) .carousel-container {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.carousel-track {
+  display: flex;
+}
+
+.carousel-item {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: calc(var(--outer-r) - var(--p-distance));
+  background: linear-gradient(145deg, #1e1b2e, #13101d);
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  min-height: 220px;
+}
+
+:root:not(.dark) .carousel-item {
+  background: linear-gradient(145deg, #ffffff, #f8fafc);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.carousel-item:hover {
+  border-color: rgba(168, 85, 247, 0.45);
+  box-shadow: 0 15px 35px -10px rgba(168, 85, 247, 0.25);
+}
+
+.carousel-item:active {
+  cursor: grabbing;
+}
+
+.carousel-container.round {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.carousel-item.round {
+  background: linear-gradient(145deg, #1e1b2e, #13101d);
+  position: relative;
+  bottom: 0.1em;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+:root:not(.dark) .carousel-item.round {
+  background: linear-gradient(145deg, #ffffff, #f8fafc);
+}
+
+.carousel-item-header.round {
+  padding: 0;
+  margin: 0;
+}
+
+.carousel-indicators-container.round {
+  position: absolute;
+  z-index: 2;
+  bottom: 2em;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.carousel-item-header {
+  margin-bottom: 8px;
+  padding: 20px 20px 0 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.carousel-icon-container {
+  display: flex;
+  height: 44px;
+  width: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
+  box-shadow: 0 6px 16px -2px rgba(168, 85, 247, 0.4);
+}
+
+.carousel-icon {
+  height: 22px;
+  width: 22px;
+  color: #ffffff;
+}
+
+.carousel-item-content {
+  padding: 16px 20px 24px 20px;
+  width: 100%;
+}
+
+.carousel-item-title {
+  margin-bottom: 6px;
+  font-weight: 800;
+  font-size: 18px;
+  color: #f8fafc;
+  line-height: 1.35;
+}
+
+.carousel-item-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.carousel-item-title a:hover {
+  color: #a855f7;
+}
+
+:root:not(.dark) .carousel-item-title a:hover {
+  color: #7c3aed;
+}
+
+:root:not(.dark) .carousel-item-title {
+  color: #0f172a;
+}
+
+.carousel-item-description {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #94a3b8;
+}
+
+:root:not(.dark) .carousel-item-description {
+  color: #475569;
+}
+
+.carousel-indicators-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.carousel-indicators {
+  margin-top: 18px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 16px;
+}
+
+.carousel-indicator {
+  height: 9px;
+  width: 9px;
+  border: none;
+  padding: 0;
+  appearance: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+:root:not(.dark) .carousel-indicator {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.carousel-indicator:focus-visible {
+  outline: 2px solid #a855f7;
+  outline-offset: 2px;
+}
+
+.carousel-indicator.active {
+  width: 28px;
+  background-color: #a855f7;
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.7);
+}
+
+:root:not(.dark) .carousel-indicator.active {
+  background-color: #7c3aed;
+  box-shadow: 0 0 12px rgba(124, 58, 237, 0.4);
+}
